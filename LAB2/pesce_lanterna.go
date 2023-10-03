@@ -10,14 +10,12 @@ func main() {
 		pesci[x]++
 	}*/
 	temp := 0
-	temp2 := 0
-	for i := 0; i < 80; i++ {
+	for i := 0; i < 256; i++ { //esegue le operazioni successive tante quanti sono i giorni
 		temp = pesci[0]
-		for j := 8; j > 0; j-- {
-			pesci[j-1] = pesci[j]
+		for j := 8; j >= 0; j-- { //riduce il timer dei pesci
+			pesci[j], temp = temp, pesci[j]
 		}
-		//pesci[8], pesci[7], pesci[6], pesci[5], pesci[4], pesci[3], pesci[2], pesci[1], pesci[0] = pesci[0], pesci[8], pesci[7], pesci[6], pesci[5], pesci[4], pesci[3], pesci[2], pesci[1]
-		pesci[8] += temp
+
 		pesci[6] += temp
 		fmt.Println(pesci)
 	}
